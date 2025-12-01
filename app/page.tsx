@@ -1,4 +1,3 @@
-// app/page.tsx
 import { auth } from "@/auth";
 
 export default async function Home() {
@@ -6,15 +5,14 @@ export default async function Home() {
 
   if (!session) {
     return (
-      <a href="/api/auth/signin">Sign in with GitHub</a>
+      <a href="/api/auth/signin/github">Sign in with GitHub</a>
     );
   }
 
   return (
     <div>
       <p>{session.user?.name}</p>
-      <img src={session.user?.image || ""} alt="avatar" width={50} height={50} />
-      <br />
+      <img src={session.user?.image || ""} width={50} />
       <a href="/api/auth/signout">Sign out</a>
     </div>
   );
